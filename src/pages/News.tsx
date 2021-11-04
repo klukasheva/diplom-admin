@@ -2,11 +2,12 @@ import * as React from 'react'
 import {FunctionComponent, useEffect, useState} from "react";
 import {Button, DatePicker, Form, Input, Select, Space, Table} from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import {createNews, getNewsList} from "./news.service";
+import {createNews, deleteNews, getNewsList} from "./news.service";
 import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
-import {ProductI} from "./product.service";
+import {deleteProduct, ProductI} from "./product.service";
 import {useModal} from "../App";
 import {observer} from "mobx-react";
+import {DeleteOutlined} from "@ant-design/icons";
 
 export interface NewsI {
     id: number
@@ -19,6 +20,15 @@ export interface NewsI {
 
 
 export const News= observer(() => {
+
+    const remove = async (ids: number[]) => {
+        try {
+            await deleteNews(ids)
+            SuccessNotifications(`Новость № ${ids[0]} удалена `)
+        } catch (e) {
+            ErrorNotifications(`Произошла ошибка. Новость ${ids[0]} не была удалена`)
+        }
+    }
 
     const COLUMNS = [
         {
@@ -59,7 +69,11 @@ export const News= observer(() => {
                 modal.setShowModal(true)
                 modal.setData({target: data, key: 'editNews'})
             }}>Edit</Button>
-        }
+        },
+        {
+            dataIndex: 'id',
+            render: (id: number) => <Button shape="circle" onClick={() => remove([id])} icon={<DeleteOutlined/>}/>
+        },
     ]
 
     const modal = useModal()

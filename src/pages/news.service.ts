@@ -55,3 +55,8 @@ export const createNews = async (body: NewsI) => {
         }
     )
 }
+
+export const deleteNews = async (arrayIds: number[]) => {
+    const body = {ids: arrayIds};
+    return await axios.delete<{ids: number[]}>(`${config.host}:${config.api_port}/${config.endpoints.news}`, {data: body})
+}

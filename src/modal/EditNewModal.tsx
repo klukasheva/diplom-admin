@@ -8,13 +8,15 @@ import {PlusOutlined} from "@ant-design/icons";
 import {UploadFile} from "antd/es/upload/interface";
 import {editNews} from "../pages/news.service";
 import {NewsI} from "../pages/News";
+import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
+import {observer} from "mobx-react";
 
 export interface EditProductModalI{
     data: ValuesModalI,
     setShow: (value: boolean) => void
 }
 
-export const EditNewsModal = ({data, setShow}: EditProductModalI) => {
+export const EditNewsModal = observer (({data, setShow}: EditProductModalI) => {
     const [form] = useForm();
     const [file, setFile] = useState<UploadFile>({
         url: `http://localhost:3001/files/${data.target.image}`,
@@ -35,9 +37,10 @@ export const EditNewsModal = ({data, setShow}: EditProductModalI) => {
                 creationDate: creationDate
             }
             await editNews(prepareBody)
+            SuccessNotifications(`Носость №${data.target.id} успешно отредактирована`)
         }
         catch (e) {
-
+            ErrorNotifications('Произошла ошибка при редактировании новости')
         }
     }
     return(
@@ -85,4 +88,4 @@ export const EditNewsModal = ({data, setShow}: EditProductModalI) => {
             </Modal>
         </div>
     )
-}
+})

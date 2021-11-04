@@ -9,6 +9,7 @@ import {ErrorNotifications, SuccessNotifications} from "../norifications/notific
 import {UploadFile} from "antd/es/upload/interface";
 import {PlusOutlined} from "@ant-design/icons";
 import {CategoryI, getCategoryList} from "../pages/category.service";
+import TextArea from "antd/es/input/TextArea";
 
 
 const {Option} = Select;
@@ -88,7 +89,7 @@ export const EditProductModal = observer(({data, setShow}: CreateProductModalI) 
                     <Input/>
                 </Form.Item>
                 <Form.Item name={'description'} label={'Описание продукта'}>
-                    <Input/>
+                    <TextArea placeholder={'Текст'} minLength={100}/>
                 </Form.Item>
                 <Form.Item name={'cost'} label={'Стоимость товара'}>
                     <InputNumber/>
