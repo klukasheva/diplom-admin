@@ -7,7 +7,8 @@ export const config = {
         news: 'news',
         tags: 'tags',
         feedback: 'feedback',
-        order: 'order'
+        order: 'order',
+        vacansy: 'vacansy'
 
     }
 }

@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 import {News} from "./pages/News";
 import {Feedbacks} from "./pages/feedbacks";
 import {OrdersPage} from "./pages/OrdersPage";
+import { VacansyPage } from './pages/VacansyPage';
 
 const {Header, Sider, Content} = Layout;
 const menuItems = [
@@ -37,6 +38,10 @@ const menuItems = [
         key: 'Категории продуктов',
         link: '/categories'
     },
+    {
+        key: 'Вакансии',
+        link: '/vacansy'
+    }
 ]
 
 
@@ -80,6 +85,7 @@ const  App = observer(()=>{
                         <Route path={'/news'} component={News}/>
                         <Route path={'/feedbacks'} component={Feedbacks}/>
                         <Route path={'/orders'} component={OrdersPage}/>
+                        <Route path={'/vacansy'} component={VacansyPage}/>
                     </Switch>
                 </Content>
             </Layout>
