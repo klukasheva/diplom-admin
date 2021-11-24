@@ -2,10 +2,19 @@ import {Button, Form, Input, Space, Table} from 'antd'
 import * as React from 'react'
 import {useEffect, useState} from "react";
 import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
-import {CategoryI, createCategory, getCategoryList} from "./category.service";
+import {CategoryI, createCategory, deleteCategory, getCategoryList} from "./category.service";
+import {DeleteOutlined} from "@ant-design/icons";
 
 export const Category = () => {
 
+    const remove = async (ids: number[]) => {
+        try {
+            await deleteCategory(ids)
+            SuccessNotifications(`Категория № ${ids[0]} удалена `)
+        } catch (e) {
+            ErrorNotifications(`Произошла ошибка. Категория ${ids[0]} не была удалена`)
+        }
+    }
     const columns = [
         {
             title: 'Id',
@@ -21,7 +30,11 @@ export const Category = () => {
             title: 'Номер телефона',
             dataIndex: 'phoneNumber',
             key: 'phoneNumber'
-        }
+        },
+        {
+            dataIndex: 'id',
+            render: (id: number) => <Button shape="circle" onClick={() => remove([id])} icon={<DeleteOutlined/>}/>
+        },
     ]
 
     const [title, setTitle] = useState('');
