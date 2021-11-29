@@ -15,6 +15,7 @@ import {News} from "./pages/News";
 import {Feedbacks} from "./pages/feedbacks";
 import {OrdersPage} from "./pages/OrdersPage";
 import { VacansyPage } from './pages/VacansyPage';
+import {Navlinks} from "./pages/Navlinks";
 
 const {Header, Sider, Content} = Layout;
 const menuItems = [
@@ -41,6 +42,10 @@ const menuItems = [
     {
         key: 'Вакансии',
         link: '/vacansy'
+    },
+    {
+        key: 'Навигационные ссылки',
+        link: '/navlinks'
     }
 ]
 
@@ -86,6 +91,7 @@ const  App = observer(()=>{
                         <Route path={'/feedbacks'} component={Feedbacks}/>
                         <Route path={'/orders'} component={OrdersPage}/>
                         <Route path={'/vacansy'} component={VacansyPage}/>
+                        <Route path={'/navlinks'} component={Navlinks}/>
                     </Switch>
                 </Content>
             </Layout>

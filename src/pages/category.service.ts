@@ -17,6 +17,10 @@ export const getCategoryList = async () => {
    return await axios.get<CategoryI[]>(`${config.host}:${config.api_port}/${config.endpoints.category}`)
 }
 
+export const updateCategory = async (data:CategoryI) => {
+    return await axios.put<CategoryI>(`${config.host}:${config.api_port}/${config.endpoints.category}`,data)
+}
+
 export const deleteCategory = async (arrayIds: number[]) => {
     const body = {ids: arrayIds};
     return await axios.delete<{ids: number[]}>(`${config.host}:${config.api_port}/${config.endpoints.category}`, {data: body})
