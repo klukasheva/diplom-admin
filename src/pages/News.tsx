@@ -4,7 +4,6 @@ import {Button, DatePicker, Form, Input, Select, Space, Table} from 'antd';
 import TextArea from "antd/es/input/TextArea";
 import {createNews, deleteNews, getNewsList} from "./news.service";
 import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
-import {deleteProduct, ProductI} from "./product.service";
 import {useModal} from "../App";
 import {observer} from "mobx-react";
 import {DeleteOutlined} from "@ant-design/icons";

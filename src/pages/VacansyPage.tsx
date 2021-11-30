@@ -7,6 +7,7 @@ import {config} from "../config";
 import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
 import {DeleteOutlined} from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
+import {useModal} from "../App";
 
 
 type VacansyType={
@@ -18,7 +19,7 @@ type VacansyType={
 
 }
 export const VacansyPage : FunctionComponent = () => {
-
+    const modal = useModal()
     const COLUMNS = [
         {
             title: 'Id',
@@ -48,6 +49,12 @@ export const VacansyPage : FunctionComponent = () => {
         {
             dataIndex: 'id',
             render: (id: number) => <Button shape="circle" onClick={() => deleteVacansy([id])} icon={<DeleteOutlined/>}/>
+        },
+        {
+            render: (data: VacansyType) => <Button onClick={() => {
+                modal.setShowModal(true)
+                modal.setData({target: data, key: 'editVacansy'})
+            }}>Edit</Button>
         },
     ]
 

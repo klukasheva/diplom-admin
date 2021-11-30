@@ -4,9 +4,11 @@ import {useEffect, useState} from "react";
 import {ErrorNotifications, SuccessNotifications} from "../norifications/notifications";
 import {CategoryI, createCategory, deleteCategory, getCategoryList} from "./category.service";
 import {DeleteOutlined} from "@ant-design/icons";
+import {NewsI} from "./News";
+import {useModal} from "../App";
 
 export const Category = () => {
-
+    const modal = useModal()
     const remove = async (ids: number[]) => {
         try {
             await deleteCategory(ids)
@@ -34,6 +36,12 @@ export const Category = () => {
         {
             dataIndex: 'id',
             render: (id: number) => <Button shape="circle" onClick={() => remove([id])} icon={<DeleteOutlined/>}/>
+        },
+        {
+            render: (data: NewsI) => <Button onClick={() => {
+                modal.setShowModal(true)
+                modal.setData({target: data, key: 'editCategory'})
+            }}>Edit</Button>
         },
     ]
 

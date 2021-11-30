@@ -5,7 +5,22 @@
 const NewsModalKeys = {
     "EDIT_NEWS" : 'editNews'
 }
-export const ModalKeys = {
+
+const CategoryModalKeys = {
+    "EDIT_CATEGORY": 'editCategory'
+}
+
+const VacansyModalKeys = {
+    'EDIT_VACANSY': 'editVacansy'
+}
+
+const NavlinksModalKeys = {
+    'EDIT_LINKS': 'editLinks'
+}
+ export const ModalKeys = {
     ...ProductModalKeys,
-    ...NewsModalKeys
+    ...NewsModalKeys,
+    ...CategoryModalKeys,
+    ...VacansyModalKeys,
+     ...NavlinksModalKeys
 }
