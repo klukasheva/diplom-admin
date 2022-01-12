@@ -105,7 +105,7 @@ export const News= observer(() => {
     }
     return (
         <div style={{height: '100vh'}}>
-            <Space style={{padding: '30px'}} direction={'horizontal'}>
+            <Space style={{padding: '30px', width: "100%"}} direction={'vertical'}>
                 <Form form={form} initialValues={{title: '', author: '' , creationDate: '', content: '', image: ''}}>
                     <Form.Item name={'title'} label={'Заголовок'} rules={[{required: true}]}>
                         <Input/>

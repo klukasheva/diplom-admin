@@ -73,7 +73,7 @@ export const Navlinks: FunctionComponent = () => {
     }
     return(
         <div style={{height: '100vh'}}>
-            <Space style={{padding: '30px'}} direction={'vertical'}>
+            <Space style={{padding: '30px', width: "100%"}} direction={'vertical'}>
                 <Form.Item name={'title'} label={'Заголовок'} rules={[{required: true}]}>
                     <Input onChange={event=> setTitle(event.target.value)}/>
                 </Form.Item>

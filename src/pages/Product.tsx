@@ -127,9 +127,9 @@ export const Product = observer(() => {
     }
     return (
         <div style={{height: '100vh'}}>
-            <Space style={{padding: '30px'}} direction={'horizontal'}>
+            
                 <Form form={form} initialValues={{title: '', description: '', cost: 0, stockCost: 0, image: ''}}>
-                    <Space>
+                <Space style={{padding: '30px', width: "100%"}} direction={'vertical'}>
                         <Form.Item name={'title'} label={'Наименование продукта'} rules={[{required: true}]}>
                             <Input/>
                         </Form.Item>
@@ -150,8 +150,6 @@ export const Product = observer(() => {
                         <Form.Item name={'cost'} label={'Стоимость товара'} rules={[{required: true}]}>
                             <InputNumber/>
                         </Form.Item>
-                    </Space>
-                    <Space>
                         <Form.Item name={'stockCost'} label={'Стоимость товара с учётом скидки'}
                                    rules={[{required: true}]}>
                             <InputNumber/>
@@ -165,16 +163,16 @@ export const Product = observer(() => {
                                 <Button icon={<UploadOutlined/>}>Загрузить</Button>
                             </Upload>
                         </Form.Item>
-                    </Space>
-                    <Button
-                        key='submit'
-                        type='primary'
-                        onClick={submit}
-                    >
-                        Подтвердить
-                    </Button>
+                        <Button
+                            key='submit'
+                            type='primary'
+                            onClick={submit}
+                        >
+                            Подтвердить
+                        </Button>
+                        </Space>
                 </Form>
-            </Space>
+            
             <Table dataSource={products} columns={COLUMNS}>
 
             </Table>

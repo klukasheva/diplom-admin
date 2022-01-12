@@ -68,7 +68,7 @@ export const Category = () => {
     }
     return (
         <div style={{height: '100vh'}}>
-            <Space style={{padding: '30px'}} direction={'vertical'}>
+            <Space style={{padding: '30px', width: "100%"}} direction={'vertical'}>
                 <Form.Item label={'Введите название категории'} name={'title'}>
                     <Input onChange={e => setTitle(e.target.value)}/>
                 </Form.Item>

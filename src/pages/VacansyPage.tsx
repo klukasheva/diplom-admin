@@ -101,7 +101,7 @@ export const VacansyPage : FunctionComponent = () => {
     }
     return(
         <div style={{height: '100vh'}}>
-            <Space style={{padding: '30px'}} direction={'horizontal'}>
+            <Space style={{padding: '30px', width: "100%"}} direction={'horizontal'}>
                 <Form form={form} initialValues={{offerDescription: '', offerName: '' , salaryEnd: '', salaryStart: ''}}>
                     <Form.Item name={'offerName'} label={'Наименование'} rules={[{required: true}]}>
                         <Input/>
